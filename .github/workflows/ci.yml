@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Установка poetry и зависимостей
+        run: |
+          pip install poetry
+          poetry install
+
+      - name: Линтинг и формат
+        run: |
+          poetry run ruff check .
+          poetry run black --check .
+          poetry run isort --check-only .
+
+      - name: Тесты
+        run: |
+          poetry run pytest
