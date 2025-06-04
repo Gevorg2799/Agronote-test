@@ -1,5 +1,6 @@
-from litestar.testing import TestClient
 from app.main import app
+from litestar.testing import TestClient
+
 
 def test_root():
     client = TestClient(app)
