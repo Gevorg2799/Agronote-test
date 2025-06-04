@@ -10,6 +10,8 @@ packages = [{ include = "app", from = "src" }]
 [tool.poetry.dependencies]
 python = "^3.10"
 litestar = "^2.0.0"
+uvicorn = "^0.34.3"
+pydantic = "^2.11.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2"
@@ -26,10 +28,13 @@ line-length = 88
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py310"
+exclude = [".venv", "build", "dist", "__pycache__"]
+
 [tool.ruff.lint]
-select = ["E", "F", "I", "B", "C90"]
+select = ["E", "F",  "B", "C90"]
 ignore = ["D203", "ANN101"]
 
 [tool.isort]
 profile = "black"
+line_length = 88

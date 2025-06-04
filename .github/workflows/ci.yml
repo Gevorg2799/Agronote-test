@@ -18,9 +18,11 @@ jobs:
 
       - name: Линтинг и формат
         run: |
-          poetry run ruff check .
-          poetry run black --check .
           poetry run isort --check-only .
+          poetry run black --check .
+          poetry run ruff check .
+          
+          
 
       - name: Тесты
         run: |
