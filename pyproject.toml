@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "agronote-test"
+version = "0.1.0"
+description = "Начальный шаблон бэкэнда для оптимальной системы орошения"
+authors = ["Gevorg Khachatryan <gevorg2799@mail.ru>"]
+readme = "README.md"
+packages = [{ include = "app", from = "src" }]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+litestar = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2"
+ruff = "^0.4.4"
+black = "^24.4"
+isort = "^5.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "F", "I", "B", "C90"]
+ignore = ["D203", "ANN101"]
+
+[tool.isort]
+profile = "black"
