@@ -1,4 +1,3 @@
-# src/app/main.py
 from litestar import Litestar, get
 
 
