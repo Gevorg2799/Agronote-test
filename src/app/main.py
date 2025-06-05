@@ -1,5 +1,6 @@
-from app.api.routes import irrigation_handler
 from litestar import Litestar, get
+
+from app.api.routes import irrigation_handler
 
 
 @get("/")
